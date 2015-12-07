@@ -1,0 +1,1042 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>upis package &mdash; WiSHFUL 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="WiSHFUL 1.0 documentation" href="index.html" />
+    <link rel="up" title="WiSHFUL_UPI_SHOWCASES" href="modules.html" />
+    <link rel="prev" title="example.showcase3 package" href="example.showcase3.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="upis-package">
+<h1>upis package<a class="headerlink" href="#upis-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-upis.upi_g">
+<span id="upis-upi-g-module"></span><h2>upis.upi_g module<a class="headerlink" href="#module-upis.upi_g" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="upis.upi_g.UPI_G">
+<em class="property">class </em><code class="descclassname">upis.upi_g.</code><code class="descname">UPI_G</code><a class="headerlink" href="#upis.upi_g.UPI_G" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.4/library/functions.html#object" title="(in Python v3.4)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<dl class="attribute">
+<dt id="upis.upi_g.UPI_G.NF_GET_LINK_PARAMETERS">
+<code class="descname">NF_GET_LINK_PARAMETERS</code><em class="property"> = 'NF_GET_LINK_PARAMETERS'</em><a class="headerlink" href="#upis.upi_g.UPI_G.NF_GET_LINK_PARAMETERS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="upis.upi_g.UPI_G.NF_GET_NODES_IN_CARRIERSENSING_RANGE">
+<code class="descname">NF_GET_NODES_IN_CARRIERSENSING_RANGE</code><em class="property"> = 'NF_GET_NODES_IN_CARRIERSENSING_RANGE'</em><a class="headerlink" href="#upis.upi_g.UPI_G.NF_GET_NODES_IN_CARRIERSENSING_RANGE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="upis.upi_g.UPI_G.NF_GET_NODES_IN_COMMUNICATION_RANGE">
+<code class="descname">NF_GET_NODES_IN_COMMUNICATION_RANGE</code><em class="property"> = 'NF_GET_NODES_IN_COMMUNICATION_RANGE'</em><a class="headerlink" href="#upis.upi_g.UPI_G.NF_GET_NODES_IN_COMMUNICATION_RANGE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="upis.upi_g.UPI_G.execNetworkFunction">
+<code class="descname">execNetworkFunction</code><span class="sig-paren">(</span><em>nf_key_value</em><span class="sig-paren">)</span><a class="headerlink" href="#upis.upi_g.UPI_G.execNetworkFunction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Execute a network function in the network
+:param nf_key_value: key and value of the NF to be executed</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="upis.upi_g.UPI_G.getNodes">
+<code class="descname">getNodes</code><span class="sig-paren">(</span><em>customFilter</em><span class="sig-paren">)</span><a class="headerlink" href="#upis.upi_g.UPI_G.getNodes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve all nodes which can be controlled
+:param string customfilter: optional filter.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="upis.upi_g.UPI_G.runAt">
+<code class="descname">runAt</code><span class="sig-paren">(</span><em>node_lst</em>, <em>UPIfunc</em>, <em>UPIargs</em>, <em>exec_time</em>, <em>resultCallbackfunc=None</em>, <em>priority=1</em><span class="sig-paren">)</span><a class="headerlink" href="#upis.upi_g.UPI_G.runAt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exec remote function on UPI_R/N
+:param node_lst: list of nodes we want to exec function
+:param UPIfunc: UPI (R/N) function to be executed
+:param UPIargs: UPI function arguments
+:param exec_time: absolute time since epoch (2-tuple of second &amp; microsecond) when the function will be executed or None for immediate execution
+:param resultCallbackfunc: the callback used for returning results of time scheduled function execution.
+:param priority: as in UNIX, lower priority numbers mean higher priority</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="upis.upi_g.UPI_G.runNFAt">
+<code class="descname">runNFAt</code><span class="sig-paren">(</span><em>UPIfunc</em>, <em>UPIargs</em>, <em>exec_time</em>, <em>resultCallbackfunc=None</em>, <em>priority=1</em><span class="sig-paren">)</span><a class="headerlink" href="#upis.upi_g.UPI_G.runNFAt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exec global functions on UPI_G
+:param UPIfunc: UPI_G function to be executed
+:param UPIargs: UPI function arguments
+:param exec_time: absolute time since epoch (2-tuple of second &amp; microsecond) when the function will be executed or None for immediate execution
+:param resultCallbackfunc: the callback used for returning results of time scheduled function execution.
+:param priority: as in UNIX, lower priority numbers mean higher priority</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="upis.upi_g.UPI_G.stopAt">
+<code class="descname">stopAt</code><span class="sig-paren">(</span><em>node_lst</em>, <em>exec_time</em>, <em>resultCallbackfunc=None</em><span class="sig-paren">)</span><a class="headerlink" href="#upis.upi_g.UPI_G.stopAt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Used to stop remote functions, e.g. loops
+:param node_lst: list of nodes we want to exec function
+:param exec_time: absolute time when the function will be executed or -1 for immediate execution
+:param resultCallbackfunc: the callback used for returning results of time scheduled function execution.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-upis.upi_l">
+<span id="upis-upi-l-module"></span><h2>upis.upi_l module<a class="headerlink" href="#module-upis.upi_l" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="upis.upi_l.UPI_L">
+<em class="property">class </em><code class="descclassname">upis.upi_l.</code><code class="descname">UPI_L</code><a class="headerlink" href="#upis.upi_l.UPI_L" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#upis.upi_r.UPI_R" title="upis.upi_r.UPI_R"><code class="xref py py-class docutils literal"><span class="pre">upis.upi_r.UPI_R</span></code></a>, <a class="reference internal" href="#upis.upi_n.UPI_N" title="upis.upi_n.UPI_N"><code class="xref py py-class docutils literal"><span class="pre">upis.upi_n.UPI_N</span></code></a></p>
+<dl class="method">
+<dt id="upis.upi_l.UPI_L.stopFunc">
+<code class="descname">stopFunc</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#upis.upi_l.UPI_L.stopFunc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Helper to stop execution of local controller</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-upis.upi_m">
+<span id="upis-upi-m-module"></span><h2>upis.upi_m module<a class="headerlink" href="#module-upis.upi_m" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="upis.upi_m.UPI_M">
+<em class="property">class </em><code class="descclassname">upis.upi_m.</code><code class="descname">UPI_M</code><a class="headerlink" href="#upis.upi_m.UPI_M" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.4/library/functions.html#object" title="(in Python v3.4)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<dl class="method">
+<dt id="upis.upi_m.UPI_M.initTest">
+<code class="descname">initTest</code><span class="sig-paren">(</span><em>param_key</em><span class="sig-paren">)</span><a class="headerlink" href="#upis.upi_m.UPI_M.initTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Activate the
+:param type ...
+:return result</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="upis.upi_m.UPI_M.installExecutionEngine">
+<code class="descname">installExecutionEngine</code><span class="sig-paren">(</span><em>param_key</em><span class="sig-paren">)</span><a class="headerlink" href="#upis.upi_m.UPI_M.installExecutionEngine" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the ...
+:param
+type ...
+path ...
+:return result</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-upis.upi_n">
+<span id="upis-upi-n-module"></span><h2>upis.upi_n module<a class="headerlink" href="#module-upis.upi_n" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="upis.upi_n.UPI_N">
+<em class="property">class </em><code class="descclassname">upis.upi_n.</code><code class="descname">UPI_N</code><a class="headerlink" href="#upis.upi_n.UPI_N" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.4/library/functions.html#object" title="(in Python v3.4)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<dl class="attribute">
+<dt id="upis.upi_n.UPI_N.IFACE_IP_ADDR">
+<code class="descname">IFACE_IP_ADDR</code><em class="property"> = 'IFACE_IP_ADDR'</em><a class="headerlink" href="#upis.upi_n.UPI_N.IFACE_IP_ADDR" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="upis.upi_n.UPI_N.clearIpTables">
+<code class="descname">clearIpTables</code><span class="sig-paren">(</span><em>table</em>, <em>chain</em><span class="sig-paren">)</span><a class="headerlink" href="#upis.upi_n.UPI_N.clearIpTables" title="Permalink to this definition">¶</a></dt>
+<dd><p>Func Desc</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="upis.upi_n.UPI_N.delMarking">
+<code class="descname">delMarking</code><span class="sig-paren">(</span><em>flowDesc</em>, <em>markId</em>, <em>table</em>, <em>chain</em><span class="sig-paren">)</span><a class="headerlink" href="#upis.upi_n.UPI_N.delMarking" title="Permalink to this definition">¶</a></dt>
+<dd><p>Func Desc</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="upis.upi_n.UPI_N.delTos">
+<code class="descname">delTos</code><span class="sig-paren">(</span><em>flowDesc</em>, <em>tos</em>, <em>table</em>, <em>chain</em><span class="sig-paren">)</span><a class="headerlink" href="#upis.upi_n.UPI_N.delTos" title="Permalink to this definition">¶</a></dt>
+<dd><p>Func Desc</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="upis.upi_n.UPI_N.getIpTable">
+<code class="descname">getIpTable</code><span class="sig-paren">(</span><em>table</em>, <em>chain</em><span class="sig-paren">)</span><a class="headerlink" href="#upis.upi_n.UPI_N.getIpTable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Func Desc</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="upis.upi_n.UPI_N.getParameterHigherLayer">
+<code class="descname">getParameterHigherLayer</code><span class="sig-paren">(</span><em>iface</em>, <em>param_key</em><span class="sig-paren">)</span><a class="headerlink" href="#upis.upi_n.UPI_N.getParameterHigherLayer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get one or more parameters on higher layers of protocol stack (higher MAC and above)
+:param iface (string): string name of the interface
+:param param_key (list): a list of list of parameter keys [&#8216;key1&#8217;,&#8217;key2&#8217;,...]
+:return key_value (dictionary): the key and value of the parameters {&#8216;key1&#8217;:value1, &#8216;key2&#8217;:value2, ...}</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="upis.upi_n.UPI_N.installEgressScheduler">
+<code class="descname">installEgressScheduler</code><span class="sig-paren">(</span><em>iface</em>, <em>scheduler</em><span class="sig-paren">)</span><a class="headerlink" href="#upis.upi_n.UPI_N.installEgressScheduler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Func Desc</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="upis.upi_n.UPI_N.removeEgressScheduler">
+<code class="descname">removeEgressScheduler</code><span class="sig-paren">(</span><em>iface</em><span class="sig-paren">)</span><a class="headerlink" href="#upis.upi_n.UPI_N.removeEgressScheduler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Func Desc</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="upis.upi_n.UPI_N.removePerLinkProfile">
+<code class="descname">removePerLinkProfile</code><span class="sig-paren">(</span><em>iface</em>, <em>srcNode</em>, <em>dstNode</em><span class="sig-paren">)</span><a class="headerlink" href="#upis.upi_n.UPI_N.removePerLinkProfile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Func Desc</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="upis.upi_n.UPI_N.removeProfile">
+<code class="descname">removeProfile</code><span class="sig-paren">(</span><em>iface</em>, <em>profile</em><span class="sig-paren">)</span><a class="headerlink" href="#upis.upi_n.UPI_N.removeProfile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Func Desc</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="upis.upi_n.UPI_N.setMarking">
+<code class="descname">setMarking</code><span class="sig-paren">(</span><em>flowDesc</em>, <em>markId</em>, <em>table</em>, <em>chain</em><span class="sig-paren">)</span><a class="headerlink" href="#upis.upi_n.UPI_N.setMarking" title="Permalink to this definition">¶</a></dt>
+<dd><p>Func Desc</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="upis.upi_n.UPI_N.setParameterHigherLayer">
+<code class="descname">setParameterHigherLayer</code><span class="sig-paren">(</span><em>iface</em>, <em>param_key_value</em><span class="sig-paren">)</span><a class="headerlink" href="#upis.upi_n.UPI_N.setParameterHigherLayer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the parameter on higher layers of protocol stack (higher MAC and above)
+:param iface (string): string name of the interface
+:param param_key_value (dictonary): key and value of the parameters {&#8216;key1&#8217;:value1, &#8216;key2&#8217;:value2, ...}
+:return for each parameter the success</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="upis.upi_n.UPI_N.setPerLinkProfile">
+<code class="descname">setPerLinkProfile</code><span class="sig-paren">(</span><em>iface</em>, <em>srcNode</em>, <em>dstNode</em>, <em>profile</em><span class="sig-paren">)</span><a class="headerlink" href="#upis.upi_n.UPI_N.setPerLinkProfile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Func Desc</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="upis.upi_n.UPI_N.setProfile">
+<code class="descname">setProfile</code><span class="sig-paren">(</span><em>iface</em>, <em>profile</em><span class="sig-paren">)</span><a class="headerlink" href="#upis.upi_n.UPI_N.setProfile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Func Desc</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="upis.upi_n.UPI_N.setTos">
+<code class="descname">setTos</code><span class="sig-paren">(</span><em>flowDesc</em>, <em>tos</em>, <em>table</em>, <em>chain</em><span class="sig-paren">)</span><a class="headerlink" href="#upis.upi_n.UPI_N.setTos" title="Permalink to this definition">¶</a></dt>
+<dd><p>Func Desc</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="upis.upi_n.UPI_N.startIperfClient">
+<code class="descname">startIperfClient</code><span class="sig-paren">(</span><em>iface</em>, <em>serverIP</em>, <em>serverPort</em>, <em>period</em><span class="sig-paren">)</span><a class="headerlink" href="#upis.upi_n.UPI_N.startIperfClient" title="Permalink to this definition">¶</a></dt>
+<dd><p>Func Desc</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="upis.upi_n.UPI_N.startIperfServer">
+<code class="descname">startIperfServer</code><span class="sig-paren">(</span><em>iface</em>, <em>serverPort</em><span class="sig-paren">)</span><a class="headerlink" href="#upis.upi_n.UPI_N.startIperfServer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Func Desc</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="upis.upi_n.UPI_N.startPing">
+<code class="descname">startPing</code><span class="sig-paren">(</span><em>iface</em>, <em>srcAddress</em>, <em>dstAddres</em><span class="sig-paren">)</span><a class="headerlink" href="#upis.upi_n.UPI_N.startPing" title="Permalink to this definition">¶</a></dt>
+<dd><p>Func Desc</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="upis.upi_n.UPI_N.updatePerLinkProfile">
+<code class="descname">updatePerLinkProfile</code><span class="sig-paren">(</span><em>iface</em>, <em>srcNode</em>, <em>dstNode</em>, <em>profile</em><span class="sig-paren">)</span><a class="headerlink" href="#upis.upi_n.UPI_N.updatePerLinkProfile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Func Desc</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="upis.upi_n.UPI_N.updateProfile">
+<code class="descname">updateProfile</code><span class="sig-paren">(</span><em>iface</em>, <em>profile</em><span class="sig-paren">)</span><a class="headerlink" href="#upis.upi_n.UPI_N.updateProfile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Func Desc</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-upis.upi_r">
+<span id="upis-upi-r-module"></span><h2>upis.upi_r module<a class="headerlink" href="#module-upis.upi_r" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="upis.upi_r.NIC_t">
+<em class="property">class </em><code class="descclassname">upis.upi_r.</code><code class="descname">NIC_t</code><a class="headerlink" href="#upis.upi_r.NIC_t" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class to identify network interfaced cards</p>
+<dl class="attribute">
+<dt id="upis.upi_r.NIC_t.interface">
+<code class="descname">interface</code><em class="property"> = ''</em><a class="headerlink" href="#upis.upi_r.NIC_t.interface" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="upis.upi_r.NIC_t.platform">
+<code class="descname">platform</code><em class="property"> = ''</em><a class="headerlink" href="#upis.upi_r.NIC_t.platform" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="upis.upi_r.UPI_R">
+<em class="property">class </em><code class="descclassname">upis.upi_r.</code><code class="descname">UPI_R</code><a class="headerlink" href="#upis.upi_r.UPI_R" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.4/library/functions.html#object" title="(in Python v3.4)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<dl class="attribute">
+<dt id="upis.upi_r.UPI_R.BUSY_TYME">
+<code class="descname">BUSY_TYME</code><em class="property"> = 'BUSY_TIME'</em><a class="headerlink" href="#upis.upi_r.UPI_R.BUSY_TYME" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="upis.upi_r.UPI_R.BUSY_TYME_UNIT">
+<code class="descname">BUSY_TYME_UNIT</code><em class="property"> = 'us'</em><a class="headerlink" href="#upis.upi_r.UPI_R.BUSY_TYME_UNIT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="upis.upi_r.UPI_R.CSMA_BACKOFF_VALUE">
+<code class="descname">CSMA_BACKOFF_VALUE</code><em class="property"> = 'CSMA_BACKOFF_VALUE'</em><a class="headerlink" href="#upis.upi_r.UPI_R.CSMA_BACKOFF_VALUE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="upis.upi_r.UPI_R.CSMA_CW">
+<code class="descname">CSMA_CW</code><em class="property"> = 'CSMA_CW'</em><a class="headerlink" href="#upis.upi_r.UPI_R.CSMA_CW" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="upis.upi_r.UPI_R.CSMA_CW_MAX">
+<code class="descname">CSMA_CW_MAX</code><em class="property"> = 'CSMA_CW_MAX'</em><a class="headerlink" href="#upis.upi_r.UPI_R.CSMA_CW_MAX" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="upis.upi_r.UPI_R.CSMA_CW_MIN">
+<code class="descname">CSMA_CW_MIN</code><em class="property"> = 'CSMA_CW_MIN'</em><a class="headerlink" href="#upis.upi_r.UPI_R.CSMA_CW_MIN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="upis.upi_r.UPI_R.CSMA_MAC_PRIORITY_CLASS">
+<code class="descname">CSMA_MAC_PRIORITY_CLASS</code><em class="property"> = 'CSMA_MAC_PRIORITY_CLASS'</em><a class="headerlink" href="#upis.upi_r.UPI_R.CSMA_MAC_PRIORITY_CLASS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="upis.upi_r.UPI_R.CSMA_TIMESLOT">
+<code class="descname">CSMA_TIMESLOT</code><em class="property"> = 'CSMA_TIMESLOT'</em><a class="headerlink" href="#upis.upi_r.UPI_R.CSMA_TIMESLOT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="upis.upi_r.UPI_R.IEEE80211_AP_CHANNEL">
+<code class="descname">IEEE80211_AP_CHANNEL</code><em class="property"> = 'IEEE80211_AP_CHANNEL'</em><a class="headerlink" href="#upis.upi_r.UPI_R.IEEE80211_AP_CHANNEL" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="upis.upi_r.UPI_R.IEEE80211_CCA">
+<code class="descname">IEEE80211_CCA</code><em class="property"> = 'IEEE80211_CCA'</em><a class="headerlink" href="#upis.upi_r.UPI_R.IEEE80211_CCA" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="upis.upi_r.UPI_R.IEEE80211_CHANNEL">
+<code class="descname">IEEE80211_CHANNEL</code><em class="property"> = 'IEEE80211_CHANNEL'</em><a class="headerlink" href="#upis.upi_r.UPI_R.IEEE80211_CHANNEL" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="upis.upi_r.UPI_R.IEEE80211_CONNECT_TO_AP">
+<code class="descname">IEEE80211_CONNECT_TO_AP</code><em class="property"> = 'IEEE80211_CONNECT_TO_AP'</em><a class="headerlink" href="#upis.upi_r.UPI_R.IEEE80211_CONNECT_TO_AP" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="upis.upi_r.UPI_R.IEEE80211_L2_BCAST_TRANSMIT_RATE">
+<code class="descname">IEEE80211_L2_BCAST_TRANSMIT_RATE</code><em class="property"> = 'IEEE80211_L2_BCAST_TRANSMIT_RATE'</em><a class="headerlink" href="#upis.upi_r.UPI_R.IEEE80211_L2_BCAST_TRANSMIT_RATE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="upis.upi_r.UPI_R.IEEE80211_L2_GEN_LINK_PROBING">
+<code class="descname">IEEE80211_L2_GEN_LINK_PROBING</code><em class="property"> = 'IEEE80211_L2_GEN_LINK_PROBING'</em><a class="headerlink" href="#upis.upi_r.UPI_R.IEEE80211_L2_GEN_LINK_PROBING" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="upis.upi_r.UPI_R.IEEE80211_L2_SNIFF_LINK_PROBING">
+<code class="descname">IEEE80211_L2_SNIFF_LINK_PROBING</code><em class="property"> = 'IEEE80211_L2_SNIFF_LINK_PROBING'</em><a class="headerlink" href="#upis.upi_r.UPI_R.IEEE80211_L2_SNIFF_LINK_PROBING" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="upis.upi_r.UPI_R.IEEE80211_MCS">
+<code class="descname">IEEE80211_MCS</code><em class="property"> = 'IEEE80211_MCS'</em><a class="headerlink" href="#upis.upi_r.UPI_R.IEEE80211_MCS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="upis.upi_r.UPI_R.IEEE_802154E_CHANNELHOPPINGSEQ">
+<code class="descname">IEEE_802154E_CHANNELHOPPINGSEQ</code><em class="property"> = 'IEEE_802154E_CHANNELHOPPINGSEQ'</em><a class="headerlink" href="#upis.upi_r.UPI_R.IEEE_802154E_CHANNELHOPPINGSEQ" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="upis.upi_r.UPI_R.IEEE_802154E_SLOTFRAME">
+<code class="descname">IEEE_802154E_SLOTFRAME</code><em class="property"> = 'IEEE_802154E_SLOTFRAME'</em><a class="headerlink" href="#upis.upi_r.UPI_R.IEEE_802154E_SLOTFRAME" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="upis.upi_r.UPI_R.IEEE_802154E_SLOTFRAMELENGTH">
+<code class="descname">IEEE_802154E_SLOTFRAMELENGTH</code><em class="property"> = 'IEEE_802154E_SLOTFRAMELENGTH'</em><a class="headerlink" href="#upis.upi_r.UPI_R.IEEE_802154E_SLOTFRAMELENGTH" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="upis.upi_r.UPI_R.IEEE_802154_CHANNEL">
+<code class="descname">IEEE_802154_CHANNEL</code><em class="property"> = 'IEEE_802154_CHANNEL'</em><a class="headerlink" href="#upis.upi_r.UPI_R.IEEE_802154_CHANNEL" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="upis.upi_r.UPI_R.IEEE_802154_CHANNELHOPPINGSEQLENGTH">
+<code class="descname">IEEE_802154_CHANNELHOPPINGSEQLENGTH</code><em class="property"> = 'IEEE_802154_CHANNELHOPPINGSEQLENGTH'</em><a class="headerlink" href="#upis.upi_r.UPI_R.IEEE_802154_CHANNELHOPPINGSEQLENGTH" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="upis.upi_r.UPI_R.IEEE_802154_MAXBE">
+<code class="descname">IEEE_802154_MAXBE</code><em class="property"> = 'IEEE_802154_MAXBE'</em><a class="headerlink" href="#upis.upi_r.UPI_R.IEEE_802154_MAXBE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="upis.upi_r.UPI_R.IEEE_802154_MINBE">
+<code class="descname">IEEE_802154_MINBE</code><em class="property"> = 'IEEE_802154_MINBE'</em><a class="headerlink" href="#upis.upi_r.UPI_R.IEEE_802154_MINBE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="upis.upi_r.UPI_R.IEEE_802154_PANID">
+<code class="descname">IEEE_802154_PANID</code><em class="property"> = 'IEEE_802154_PANID'</em><a class="headerlink" href="#upis.upi_r.UPI_R.IEEE_802154_PANID" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="upis.upi_r.UPI_R.IEEE_802154_SHORTADDR">
+<code class="descname">IEEE_802154_SHORTADDR</code><em class="property"> = 'IEEE_802154_SHORTADDR'</em><a class="headerlink" href="#upis.upi_r.UPI_R.IEEE_802154_SHORTADDR" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="upis.upi_r.UPI_R.MAC_ADDR_SYNCHRONIZATION_AP">
+<code class="descname">MAC_ADDR_SYNCHRONIZATION_AP</code><em class="property"> = 'MAC_ADDR_SYNCHRONIZATION_AP'</em><a class="headerlink" href="#upis.upi_r.UPI_R.MAC_ADDR_SYNCHRONIZATION_AP" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="upis.upi_r.UPI_R.NETWORK_INTERFACE_HW_ADDRESS">
+<code class="descname">NETWORK_INTERFACE_HW_ADDRESS</code><em class="property"> = 'NETWORK_INTERFACE_HW_ADDRESS'</em><a class="headerlink" href="#upis.upi_r.UPI_R.NETWORK_INTERFACE_HW_ADDRESS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="upis.upi_r.UPI_R.NUM_FREEZING_COUNT">
+<code class="descname">NUM_FREEZING_COUNT</code><em class="property"> = 'NUM_FREEZING_COUNT'</em><a class="headerlink" href="#upis.upi_r.UPI_R.NUM_FREEZING_COUNT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="upis.upi_r.UPI_R.NUM_FREEZING_COUNT_UNIT">
+<code class="descname">NUM_FREEZING_COUNT_UNIT</code><em class="property"> = 'samples'</em><a class="headerlink" href="#upis.upi_r.UPI_R.NUM_FREEZING_COUNT_UNIT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="upis.upi_r.UPI_R.NUM_RX">
+<code class="descname">NUM_RX</code><em class="property"> = 'NUM_RX'</em><a class="headerlink" href="#upis.upi_r.UPI_R.NUM_RX" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="upis.upi_r.UPI_R.NUM_RX_MATCH">
+<code class="descname">NUM_RX_MATCH</code><em class="property"> = 'NUM_RX_MATCH'</em><a class="headerlink" href="#upis.upi_r.UPI_R.NUM_RX_MATCH" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="upis.upi_r.UPI_R.NUM_RX_MATCH_UNIT">
+<code class="descname">NUM_RX_MATCH_UNIT</code><em class="property"> = 'samples'</em><a class="headerlink" href="#upis.upi_r.UPI_R.NUM_RX_MATCH_UNIT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="upis.upi_r.UPI_R.NUM_RX_SUCCESS">
+<code class="descname">NUM_RX_SUCCESS</code><em class="property"> = 'NUM_RX_SUCCESS'</em><a class="headerlink" href="#upis.upi_r.UPI_R.NUM_RX_SUCCESS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="upis.upi_r.UPI_R.NUM_RX_SUCCESS_UNIT">
+<code class="descname">NUM_RX_SUCCESS_UNIT</code><em class="property"> = 'samples'</em><a class="headerlink" href="#upis.upi_r.UPI_R.NUM_RX_SUCCESS_UNIT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="upis.upi_r.UPI_R.NUM_RX_UNIT">
+<code class="descname">NUM_RX_UNIT</code><em class="property"> = 'samples'</em><a class="headerlink" href="#upis.upi_r.UPI_R.NUM_RX_UNIT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="upis.upi_r.UPI_R.NUM_TX">
+<code class="descname">NUM_TX</code><em class="property"> = 'NUM_TX'</em><a class="headerlink" href="#upis.upi_r.UPI_R.NUM_TX" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="upis.upi_r.UPI_R.NUM_TX_SUCCESS">
+<code class="descname">NUM_TX_SUCCESS</code><em class="property"> = 'NUM_TX_SUCCESS'</em><a class="headerlink" href="#upis.upi_r.UPI_R.NUM_TX_SUCCESS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="upis.upi_r.UPI_R.NUM_TX_SUCCESS_UNIT">
+<code class="descname">NUM_TX_SUCCESS_UNIT</code><em class="property"> = 'samples'</em><a class="headerlink" href="#upis.upi_r.UPI_R.NUM_TX_SUCCESS_UNIT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="upis.upi_r.UPI_R.NUM_TX_UNIT">
+<code class="descname">NUM_TX_UNIT</code><em class="property"> = 'samples'</em><a class="headerlink" href="#upis.upi_r.UPI_R.NUM_TX_UNIT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="upis.upi_r.UPI_R.RX_ANTENNA">
+<code class="descname">RX_ANTENNA</code><em class="property"> = 'RX_ANTENNA'</em><a class="headerlink" href="#upis.upi_r.UPI_R.RX_ANTENNA" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="upis.upi_r.UPI_R.TAISC_ACTIVERADIOPROGRAM">
+<code class="descname">TAISC_ACTIVERADIOPROGRAM</code><em class="property"> = 'TAISC_ACTIVERADIOPROGRAM'</em><a class="headerlink" href="#upis.upi_r.UPI_R.TAISC_ACTIVERADIOPROGRAM" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="upis.upi_r.UPI_R.TDMA_ALLOCATED_SLOT">
+<code class="descname">TDMA_ALLOCATED_SLOT</code><em class="property"> = 'TDMA_ALLOCATED_SLOT'</em><a class="headerlink" href="#upis.upi_r.UPI_R.TDMA_ALLOCATED_SLOT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="upis.upi_r.UPI_R.TDMA_MAC_PRIORITY_CLASS">
+<code class="descname">TDMA_MAC_PRIORITY_CLASS</code><em class="property"> = 'TDMA_MAC_PRIORITY_CLASS'</em><a class="headerlink" href="#upis.upi_r.UPI_R.TDMA_MAC_PRIORITY_CLASS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="upis.upi_r.UPI_R.TDMA_NUMBER_OF_SYNC_SLOT">
+<code class="descname">TDMA_NUMBER_OF_SYNC_SLOT</code><em class="property"> = 'TDMA_NUMBER_OF_SYNC_SLOT'</em><a class="headerlink" href="#upis.upi_r.UPI_R.TDMA_NUMBER_OF_SYNC_SLOT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="upis.upi_r.UPI_R.TDMA_SUPER_FRAME_SIZE">
+<code class="descname">TDMA_SUPER_FRAME_SIZE</code><em class="property"> = 'TDMA_SUPER_FRAME_SIZE'</em><a class="headerlink" href="#upis.upi_r.UPI_R.TDMA_SUPER_FRAME_SIZE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="upis.upi_r.UPI_R.TSF">
+<code class="descname">TSF</code><em class="property"> = 'TSF'</em><a class="headerlink" href="#upis.upi_r.UPI_R.TSF" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="upis.upi_r.UPI_R.TSF_UNIT">
+<code class="descname">TSF_UNIT</code><em class="property"> = 'us'</em><a class="headerlink" href="#upis.upi_r.UPI_R.TSF_UNIT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="upis.upi_r.UPI_R.TX_ACTIVITY">
+<code class="descname">TX_ACTIVITY</code><em class="property"> = 'TX_ACTIVITY'</em><a class="headerlink" href="#upis.upi_r.UPI_R.TX_ACTIVITY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="upis.upi_r.UPI_R.TX_ACTIVITY_UNIT">
+<code class="descname">TX_ACTIVITY_UNIT</code><em class="property"> = 'us'</em><a class="headerlink" href="#upis.upi_r.UPI_R.TX_ACTIVITY_UNIT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="upis.upi_r.UPI_R.TX_ANTENNA">
+<code class="descname">TX_ANTENNA</code><em class="property"> = 'TX_ANTENNA'</em><a class="headerlink" href="#upis.upi_r.UPI_R.TX_ANTENNA" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="upis.upi_r.UPI_R.TX_POWER">
+<code class="descname">TX_POWER</code><em class="property"> = 'TX_POWER'</em><a class="headerlink" href="#upis.upi_r.UPI_R.TX_POWER" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="upis.upi_r.UPI_R.cleanPerFlowTxPowerList">
+<code class="descname">cleanPerFlowTxPowerList</code><span class="sig-paren">(</span><em>iface</em><span class="sig-paren">)</span><a class="headerlink" href="#upis.upi_r.UPI_R.cleanPerFlowTxPowerList" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes the TX power settings for all flows.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>iface</strong> (<em>string.</em>) &#8211; name of the interface.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">bool.  The return code:<div class="highlight-python"><div class="highlight"><pre>True -- Success!
+False -- Fail!
+</pre></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="upis.upi_r.UPI_R.genBacklogged80211L2BcastTraffic">
+<code class="descname">genBacklogged80211L2BcastTraffic</code><span class="sig-paren">(</span><em>iface</em>, <em>num_packets</em>, <em>ipPayloadSize</em>, <em>phyBroadcastMbps</em>, <em>ipdst</em>, <em>ipsrc</em>, <em>use_tcpreplay</em><span class="sig-paren">)</span><a class="headerlink" href="#upis.upi_r.UPI_R.genBacklogged80211L2BcastTraffic" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sends as fast as possible L2 broadcast traffic. Note that all transmitted packets are identical.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>iface</strong> (<a class="reference external" href="https://docs.python.org/3.4/library/string.html#module-string" title="(in Python v3.4)"><em>string</em></a>) &#8211; name of the interface.</li>
+<li><strong>num_packets</strong> (<a class="reference external" href="https://docs.python.org/3.4/library/functions.html#int" title="(in Python v3.4)"><em>int</em></a>) &#8211; </li>
+<li><strong>ipPayloadSize</strong> (<a class="reference external" href="https://docs.python.org/3.4/library/functions.html#int" title="(in Python v3.4)"><em>int</em></a>) &#8211; </li>
+<li><strong>phyBroadcastMbps</strong> (<a class="reference external" href="https://docs.python.org/3.4/library/functions.html#int" title="(in Python v3.4)"><em>int</em></a>) &#8211; </li>
+<li><strong>ipdst</strong> (<a class="reference external" href="https://docs.python.org/3.4/library/string.html#module-string" title="(in Python v3.4)"><em>string</em></a>) &#8211; </li>
+<li><strong>ipsrc</strong> (<a class="reference external" href="https://docs.python.org/3.4/library/string.html#module-string" title="(in Python v3.4)"><em>string</em></a>) &#8211; </li>
+<li><strong>use_tcpreplay</strong> (<a class="reference external" href="https://docs.python.org/3.4/library/functions.html#bool" title="(in Python v3.4)"><em>bool</em></a>) &#8211; </li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">float.  The achieved transmit frame rate.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="upis.upi_r.UPI_R.getActive">
+<code class="descname">getActive</code><span class="sig-paren">(</span><em>iface</em><span class="sig-paren">)</span><a class="headerlink" href="#upis.upi_r.UPI_R.getActive" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get active radio program from a particular interface.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>iface</strong> (<a class="reference external" href="https://docs.python.org/3.4/library/string.html#module-string" title="(in Python v3.4)"><em>string</em></a>) &#8211; name of the interface.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">string. The name of the Active Radio Program</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="upis.upi_r.UPI_R.getEdcaParameters">
+<code class="descname">getEdcaParameters</code><span class="sig-paren">(</span><em>iface</em>, <em>queueId</em><span class="sig-paren">)</span><a class="headerlink" href="#upis.upi_r.UPI_R.getEdcaParameters" title="Permalink to this definition">¶</a></dt>
+<dd><p>Allows to obtain the enhanced distributed channel access parameters (aifs, cwmin, cwmax, txop) used on a specific hardware queue in a specific interface.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>iface</strong> (<a class="reference external" href="https://docs.python.org/3.4/library/string.html#module-string" title="(in Python v3.4)"><em>string</em></a>) &#8211; name of the interface.</li>
+<li><strong>queueId</strong> (<a class="reference external" href="https://docs.python.org/3.4/library/functions.html#int" title="(in Python v3.4)"><em>int</em></a>) &#8211; ID of the hardware QUEUE.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><p>Dictionary.  EDCA parameters key value pairs:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span><span class="s">&#39;aifs&#39;</span><span class="p">:</span><span class="mi">0</span><span class="o">-</span><span class="mi">255</span><span class="p">,</span> <span class="s">&#39;cwmin&#39;</span><span class="p">:</span><span class="mi">1</span><span class="o">-</span><span class="mi">1023</span><span class="p">,</span> <span class="s">&#39;cwmax&#39;</span><span class="p">:</span><span class="mi">1</span><span class="o">-</span><span class="mi">1023</span><span class="p">,</span> <span class="s">&#39;txop&#39;</span><span class="p">:</span><span class="mi">0</span><span class="o">-</span><span class="mi">999</span><span class="p">}</span>
+</pre></div>
+</div>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="upis.upi_r.UPI_R.getHwAddr">
+<code class="descname">getHwAddr</code><span class="sig-paren">(</span><em>iface</em><span class="sig-paren">)</span><a class="headerlink" href="#upis.upi_r.UPI_R.getHwAddr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the Hardware address of the specified interface.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>iface</strong> (<a class="reference external" href="https://docs.python.org/3.4/library/string.html#module-string" title="(in Python v3.4)"><em>string</em></a>) &#8211; name of the interface.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">string.  The hardware address.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="upis.upi_r.UPI_R.getMonitor">
+<code class="descname">getMonitor</code><span class="sig-paren">(</span><em>iface</em>, <em>param_key</em><span class="sig-paren">)</span><a class="headerlink" href="#upis.upi_r.UPI_R.getMonitor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get one (or more) monitoring value(s) on radio / lower MAC</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>iface</strong> (<a class="reference external" href="https://docs.python.org/3.4/library/string.html#module-string" title="(in Python v3.4)"><em>string</em></a>) &#8211; name of the interface</li>
+<li><strong>param_key</strong> (<a class="reference external" href="https://docs.python.org/3.4/library/stdtypes.html#list" title="(in Python v3.4)"><em>list</em></a>) &#8211; monitoring parameter keys [&#8216;key1&#8217;,&#8217;key2&#8217;,...]</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">A Dictionary with the key(s) and value(s) of the monitor parameter(s) {&#8216;key1&#8217;:value1, &#8216;key2&#8217;:value2, ...}</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="upis.upi_r.UPI_R.getNICInfo">
+<code class="descname">getNICInfo</code><span class="sig-paren">(</span><em>nic</em><span class="sig-paren">)</span><a class="headerlink" href="#upis.upi_r.UPI_R.getNICInfo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the radio capabilities of a given network card NIC_t in terms of event, measurement and parameter lists</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>nic</strong> (<a class="reference internal" href="#upis.upi_r.NIC_t" title="upis.upi_r.NIC_t"><em>upi_r.NIC_t</em></a>) &#8211; The NIC specifier.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A RadioInfo object containing the list of events, measurements and parameters.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#upis.upi_r.radio_info_t" title="upis.upi_r.radio_info_t">upi_r.radio_info_t</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="upis.upi_r.UPI_R.getNICs">
+<code class="descname">getNICs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#upis.upi_r.UPI_R.getNICs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the list of available interface names and platforms (TAISC, WMP, ATHxK) running on each interface.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A list of available NICs.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#upis.upi_r.NIC_t" title="upis.upi_r.NIC_t">upi_r.NIC_t</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="upis.upi_r.UPI_R.getParameterLowerLayer">
+<code class="descname">getParameterLowerLayer</code><span class="sig-paren">(</span><em>iface</em>, <em>param_key</em><span class="sig-paren">)</span><a class="headerlink" href="#upis.upi_r.UPI_R.getParameterLowerLayer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get one (or more) parameter(s) on on radio / lower MAC.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>iface</strong> (<em>str.</em>) &#8211; The name of the interface.</li>
+<li><strong>param_key</strong> (<em>list.</em>) &#8211; a list of parameter keys [&#8216;key1&#8217;,&#8217;key2&#8217;,...].</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">Dictionary containing the key(s) and values(s) for the requested parameter(s) {&#8216;key1&#8217;:value1, &#8216;key2&#8217;:value2, ...}.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="upis.upi_r.UPI_R.getPerFlowTxPowerList">
+<code class="descname">getPerFlowTxPowerList</code><span class="sig-paren">(</span><em>iface</em><span class="sig-paren">)</span><a class="headerlink" href="#upis.upi_r.UPI_R.getPerFlowTxPowerList" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the TX power set per flow on an interface.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>iface</strong> (<em>string.</em>) &#8211; name of the interface.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Dict.  A dictionary with as keys the flows(pytc.Filter.FlowDesc) and values the TX power.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="upis.upi_r.UPI_R.inject">
+<code class="descname">inject</code><span class="sig-paren">(</span><em>iface</em>, <em>radioProgramName</em><span class="sig-paren">)</span><a class="headerlink" href="#upis.upi_r.UPI_R.inject" title="Permalink to this definition">¶</a></dt>
+<dd><p>Inject radio program on a particular interface.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>iface</strong> (<a class="reference external" href="https://docs.python.org/3.4/library/string.html#module-string" title="(in Python v3.4)"><em>string</em></a>) &#8211; name of the interface.</li>
+<li><strong>radioProgramName</strong> (<a class="reference external" href="https://docs.python.org/3.4/library/string.html#module-string" title="(in Python v3.4)"><em>string</em></a>) &#8211; name of the RadioProgram (ATH9K_HYBRIDMAC, CSMA, TDMA).</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><p>bool.  The return code:</p>
+<div class="highlight-python"><div class="highlight"><pre>True -- Success!
+False -- No good.
+</pre></div>
+</div>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="upis.upi_r.UPI_R.setActive">
+<code class="descname">setActive</code><span class="sig-paren">(</span><em>iface</em>, <em>radioProgramName</em>, <em>init_param_key_value</em><span class="sig-paren">)</span><a class="headerlink" href="#upis.upi_r.UPI_R.setActive" title="Permalink to this definition">¶</a></dt>
+<dd><p>Allows to configure the enhanced distributed channel access parameters on a specific interface and queue.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>iface</strong> (<a class="reference external" href="https://docs.python.org/3.4/library/string.html#module-string" title="(in Python v3.4)"><em>string</em></a>) &#8211; name of the interface.</li>
+<li><strong>radioProgramName</strong> (<a class="reference external" href="https://docs.python.org/3.4/library/string.html#module-string" title="(in Python v3.4)"><em>string</em></a>) &#8211; name of the RadioProgram (ATH9K_HYBRIDMAC, CSMA, TDMA).</li>
+<li><strong>init_param_key_value</strong> (<a class="reference external" href="https://docs.python.org/3.4/library/stdtypes.html#dict" title="(in Python v3.4)"><em>dict</em></a>) &#8211; Dictionary containing the key(s) and values(s) for the init parameter(s) {&#8216;key1&#8217;:value1, &#8216;key2&#8217;:value2, ...} of the Radio Program.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><p>bool.  The return code:</p>
+<div class="highlight-python"><div class="highlight"><pre>True -- Success!
+False -- No good.
+</pre></div>
+</div>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="upis.upi_r.UPI_R.setEdcaParameters">
+<code class="descname">setEdcaParameters</code><span class="sig-paren">(</span><em>iface</em>, <em>queueId</em>, <em>edcaparam_key_value</em><span class="sig-paren">)</span><a class="headerlink" href="#upis.upi_r.UPI_R.setEdcaParameters" title="Permalink to this definition">¶</a></dt>
+<dd><p>Allows to configure the enhanced distributed channel access parameters (aifs, cwmin, cwmax, txop) on a specific hardware queue in a specific interface.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>iface</strong> (<a class="reference external" href="https://docs.python.org/3.4/library/string.html#module-string" title="(in Python v3.4)"><em>string</em></a>) &#8211; name of the interface.</li>
+<li><strong>queueId</strong> (<a class="reference external" href="https://docs.python.org/3.4/library/functions.html#int" title="(in Python v3.4)"><em>int</em></a>) &#8211; ID of the hardware QUEUE.</li>
+<li><strong>edcaparam_key_value</strong> (<a class="reference external" href="https://docs.python.org/3.4/library/stdtypes.html#dict" title="(in Python v3.4)"><em>dict</em></a>) &#8211; EDCA parameters key value pairs
+{&#8216;aifs&#8217;:0-255, &#8216;cwmin&#8217;:1-1023, &#8216;cwmax&#8217;:1-1023, &#8216;txop&#8217;:0-999}.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><p>bool.  The return code:</p>
+<div class="highlight-python"><div class="highlight"><pre>True -- Success!
+False -- Fail!
+</pre></div>
+</div>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="upis.upi_r.UPI_R.setInActive">
+<code class="descname">setInActive</code><span class="sig-paren">(</span><em>iface</em>, <em>radioProgramName</em><span class="sig-paren">)</span><a class="headerlink" href="#upis.upi_r.UPI_R.setInActive" title="Permalink to this definition">¶</a></dt>
+<dd><p>Allows to configure the enhanced distributed channel access parameters on a specific interface and queue.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>iface</strong> (<a class="reference external" href="https://docs.python.org/3.4/library/string.html#module-string" title="(in Python v3.4)"><em>string</em></a>) &#8211; name of the interface.</li>
+<li><strong>radioProgramName</strong> (<a class="reference external" href="https://docs.python.org/3.4/library/string.html#module-string" title="(in Python v3.4)"><em>string</em></a>) &#8211; name of the RadioProgram (ATH9K_HYBRIDMAC, CSMA, TDMA).</li>
+<li><strong>init_param_key_value</strong> (<a class="reference external" href="https://docs.python.org/3.4/library/stdtypes.html#dict" title="(in Python v3.4)"><em>dict</em></a>) &#8211; Dictionary containing the key(s) and values(s) for the init parameter(s) {&#8216;key1&#8217;:value1, &#8216;key2&#8217;:value2, ...} of the Radio Program.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><p>bool.  The return code:</p>
+<div class="highlight-python"><div class="highlight"><pre>True -- Success!
+False -- No good.
+</pre></div>
+</div>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="upis.upi_r.UPI_R.setParameterLowerLayer">
+<code class="descname">setParameterLowerLayer</code><span class="sig-paren">(</span><em>iface</em>, <em>param_key_value</em><span class="sig-paren">)</span><a class="headerlink" href="#upis.upi_r.UPI_R.setParameterLowerLayer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set one (or more) parameter(s) on radio / lower MAC.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>iface</strong> (<em>str.</em>) &#8211; The name of the interface.</li>
+<li><strong>param_key_value</strong> (<em>dict.</em>) &#8211; Dictionary containing the key(s) and value(s) of the parameter(s) {&#8216;key1&#8217;:value1, &#8216;key2&#8217;:value2, ...}.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">Dictionary containing the key(s) and return code(s) {&#8216;key1&#8217;:ret1, &#8216;key2&#8217;:ret2, ...}.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="upis.upi_r.UPI_R.setPerFlowTxPower">
+<code class="descname">setPerFlowTxPower</code><span class="sig-paren">(</span><em>iface</em>, <em>flow</em>, <em>txPower</em><span class="sig-paren">)</span><a class="headerlink" href="#upis.upi_r.UPI_R.setPerFlowTxPower" title="Permalink to this definition">¶</a></dt>
+<dd><p>Allows to set a TX power per flow.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Param:</th><td class="field-body">iface: name of the interface.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Parameters:</th><td class="field-body"><strong>flow</strong> (<code class="xref py py-class docutils literal"><span class="pre">pytc.Filter.FlowDesc</span></code>) &#8211; Flow descriptor.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The return code.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3.4/library/functions.html#bool" title="(in Python v3.4)">bool</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="upis.upi_r.UPI_R.setRfChannel">
+<code class="descname">setRfChannel</code><span class="sig-paren">(</span><em>iface</em>, <em>channel</em><span class="sig-paren">)</span><a class="headerlink" href="#upis.upi_r.UPI_R.setRfChannel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the RF channel on the specified interface.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>iface</strong> (<a class="reference external" href="https://docs.python.org/3.4/library/string.html#module-string" title="(in Python v3.4)"><em>string</em></a>) &#8211; name of the interface.</li>
+<li><strong>channel</strong> (<a class="reference external" href="https://docs.python.org/3.4/library/functions.html#int" title="(in Python v3.4)"><em>int</em></a>) &#8211; the channel number.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><p>bool.  The return code:</p>
+<div class="highlight-python"><div class="highlight"><pre>True -- Success!
+False -- Fail!
+</pre></div>
+</div>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="upis.upi_r.radio_info_t">
+<em class="property">class </em><code class="descclassname">upis.upi_r.</code><code class="descname">radio_info_t</code><a class="headerlink" href="#upis.upi_r.radio_info_t" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class to save radio specific</p>
+<dl class="attribute">
+<dt id="upis.upi_r.radio_info_t.NIC_info">
+<code class="descname">NIC_info</code><em class="property"> = None</em><a class="headerlink" href="#upis.upi_r.radio_info_t.NIC_info" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="upis.upi_r.radio_info_t.event_list">
+<code class="descname">event_list</code><em class="property"> = []</em><a class="headerlink" href="#upis.upi_r.radio_info_t.event_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="upis.upi_r.radio_info_t.monitor_list">
+<code class="descname">monitor_list</code><em class="property"> = []</em><a class="headerlink" href="#upis.upi_r.radio_info_t.monitor_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="upis.upi_r.radio_info_t.param_list">
+<code class="descname">param_list</code><em class="property"> = []</em><a class="headerlink" href="#upis.upi_r.radio_info_t.param_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-upis">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-upis" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">upis package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-upis.upi_g">upis.upi_g module</a></li>
+<li><a class="reference internal" href="#module-upis.upi_l">upis.upi_l module</a></li>
+<li><a class="reference internal" href="#module-upis.upi_m">upis.upi_m module</a></li>
+<li><a class="reference internal" href="#module-upis.upi_n">upis.upi_n module</a></li>
+<li><a class="reference internal" href="#module-upis.upi_r">upis.upi_r module</a></li>
+<li><a class="reference internal" href="#module-upis">Module contents</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="modules.html">WiSHFUL_UPI_SHOWCASES</a><ul>
+      <li>Previous: <a href="example.showcase3.html" title="previous chapter">example.showcase3 package</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/upis.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Pierluigi Gallo, Domenico Garlisi, Anatolij Zubow, Mikolaj Chwalisz, Piotr Gawlowicz, Peter Ruckebusch, Bart Jooris, Jan Bauwens.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.6</a>
+      
+      |
+      <a href="_sources/upis.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
